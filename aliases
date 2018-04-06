@@ -1,0 +1,22 @@
+# general aliases
+alias ls="ls -lFGhL"
+alias lt="ls -lFGhLt"
+alias ltr="ls -lFGhLrt"
+alias lls="ls -alFGhL"
+
+alias t="tree -L 1 -FC"
+alias t2="tree -L 2 -FC"
+alias t3="tree -L 3 -FC"
+alias t4="tree -L 4 -FC"
+alias t5="tree -L 5 -FC"
+
+alias tf="terraform"
+alias tfw="terraform workspace"
+alias tfwshow="terraform workspace show"
+alias tffmt="terraform fmt"
+
+alias diff="diff -ybB --suppress-common-lines"
+alias graph="git log --decorate --all --graph"
+alias rm="rm -i"
+
+alias sha256="shasum -a 256"
