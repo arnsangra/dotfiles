@@ -1,0 +1,8 @@
+# work directories aliases
+alias ggc="cd $HOME/Repositories/ggc"
+alias infra="cd $HOME/Repositories/ggc/aws-infra/infra"
+alias mainf="cd $HOME/Repositories/ggc/mainflux"
+alias orch="cd $HOME/Repositories/ggc/data-orchestrator"
+alias noti="cd $HOME/Repositories/ggc/notifications"
+alias piso="cd $HOME/Repositories/ggc/pisoni"
+alias shel="cd $HOME/Repositories/ggc/shellder"
