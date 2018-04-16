@@ -1,0 +1,58 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" my shitty vim settings
+
+" enable syntax highlight
+syntax on
+
+" show cmd
+set showcmd
+
+" highlight search
+set hlsearch
+
+" show relative line numbers
+set nu
+set relativenumber
+
+" Show current line
+set cul
+
+" enable mouse support
+set mouse=a
+
+
+" Fixing common command typos
+command! -bang -nargs=* -complete=file E e<bang> <args>
+command! -bang -nargs=* -complete=file W w<bang> <args>
+command! -bang -nargs=* -complete=file Wq wq<bang> <args>
+command! -bang -nargs=* -complete=file WQ wq<bang> <args>
+command! -bang Wa wa<bang>
+command! -bang WA wa<bang>
+command! -bang Q q<bang>
+command! -bang QA qa<bang>
+command! -bang Qa qa<bang>
+
+
+"""""""""""""""""""""""""""""""""
+" Indentation settings
+
+" tabs are at proper location
+set tabstop=4
+
+" indenting is 4 spaces
+set shiftwidth=4
+
+" dont use tab character
+set expandtab
+
+" turn indent on
+set autoindent
+
+" paste mode
+set pastetoggle=<F5>
+
+" folding
+set foldcolumn=1
+set foldmethod=indent
+set foldlevel=3
+

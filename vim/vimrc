@@ -1,58 +1,140 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" my shitty vim settings
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" enable syntax highlight
-syntax on
+" load custom plugins
+source ~/.vim/vim_pluggins
 
-" show cmd
-set showcmd
-
-" highlight search
-set hlsearch
-
-" show relative line numbers
-set nu
-set relativenumber
-
-" Show current line
-set cul
-
-" enable mouse support
-set mouse=a
+" load custom settings
+source ~/.vim/vim_settings
 
 
-" Fixing common command typos
-command! -bang -nargs=* -complete=file E e<bang> <args>
-command! -bang -nargs=* -complete=file W w<bang> <args>
-command! -bang -nargs=* -complete=file Wq wq<bang> <args>
-command! -bang -nargs=* -complete=file WQ wq<bang> <args>
-command! -bang Wa wa<bang>
-command! -bang WA wa<bang>
-command! -bang Q q<bang>
-command! -bang QA qa<bang>
-command! -bang Qa qa<bang>
 
-
-"""""""""""""""""""""""""""""""""
-" Indentation settings
-
-" tabs are at proper location
-set tabstop=4
-
-" indenting is 4 spaces
-set shiftwidth=4
-
-" dont use tab character
-set expandtab
-
-" turn indent on
-set autoindent
-
-" paste mode
-set pastetoggle=<F5>
-
-" folding
-set foldcolumn=1
-set foldmethod=indent
-set foldlevel=3
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  set nocompatible              " be iMproved, required
+"  filetype off                  " required
+"  
+"  " set the runtime path to include Vundle and initialize
+"  set rtp+=~/.vim/bundle/Vundle.vim
+"  call vundle#begin()
+"  " alternatively, pass a path where Vundle should install plugins
+"  "call vundle#begin('~/some/path/here')
+"  
+"  " let Vundle manage Vundle, required
+"  Plugin 'VundleVim/Vundle.vim'
+"  
+"  Plugin 'tpope/vim-fugitive'
+"  Plugin 'tpope/vim-surround'
+"  Plugin 'bling/vim-airline'
+"  Plugin 'hashivim/vim-terraform'
+"  Plugin 'vim-airline/vim-airline-themes'
+"  Plugin 'scrooloose/nerdtree'
+"  Plugin 'bronson/vim-trailing-whitespace'
+"  Plugin 'edkolev/tmuxline.vim'
+"  Plugin 'elzr/vim-json'
+"  
+"  
+"  
+"  
+"  
+"  Plugin 'tpope/vim-fugitive'
+"  Plugin 'vim-airline/vim-airline'
+"  Plugin 'vim-airline/vim-airline-themes'
+"  Plugin 'edkolev/tmuxline.vim'
+"  
+"  " All of your Plugins must be added before the following line
+"  call vundle#end()            " required
+"  filetype plugin indent on    " required
+"  " To ignore plugin indent changes, instead use:
+"  "filetype plugin on
+"  "
+"  " Brief help
+"  " :PluginList       - lists configured plugins
+"  " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+"  " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+"  " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"  "
+"  " see :h vundle for more details or wiki for FAQ
+"  " Put your non-Plugin stuff after this line
+"  
+"  
+"  " enable syntax highlight
+"  syntax on
+"  
+"  " show cmd
+"  set showcmd
+"  
+"  " highlight search
+"  set hlsearch
+"  
+"  " show relative line numbers
+"  set nu
+"  set relativenumber
+"  
+"  " Show current line
+"  set cul
+"  
+"  " enable mouse support
+"  set mouse=a
+"  
+"  
+"  " Fixing common command typos
+"  command! -bang -nargs=* -complete=file E e<bang> <args>
+"  command! -bang -nargs=* -complete=file W w<bang> <args>
+"  command! -bang -nargs=* -complete=file Wq wq<bang> <args>
+"  command! -bang -nargs=* -complete=file WQ wq<bang> <args>
+"  command! -bang Wa wa<bang>
+"  command! -bang WA wa<bang>
+"  command! -bang Q q<bang>
+"  command! -bang QA qa<bang>
+"  command! -bang Qa qa<bang>
+"  
+"  
+"  """""""""""""""""""""""""""""""""
+"  " Indentation settings
+"  
+"  " tabs are at proper location
+"  set tabstop=4
+"  
+"  " indenting is 4 spaces
+"  set shiftwidth=4
+"  
+"  " dont use tab character
+"  set expandtab
+"  
+"  " turn indent on
+"  set autoindent
+"  
+"  " paste mode
+"  set pastetoggle=<F5>
+"  
+"  " folding
+"  set foldcolumn=1
+"  set foldmethod=indent
+"  set foldlevel=3
+"  
+"  
+"  """""""""""""""""""""""""""""""""
+"  " Plugin Mods
+"  
+"  " vim theming
+"  let g:airline_theme='light'
+"  let g:airline#extensions#tabline#enabled = 1
+"  let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+"  let g:airline#extensions#tmuxline#enabled = 0
+"  
+"  " terraform stuff
+"  let g:terraform_align=1
+"  let g:terraform_fmt_on_save=1
+"  
+"  " nerdtree stuff
+"  " use nerdtree upon directory path
+"  autocmd StdinReadPre * let s:std_in=1
+"  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+"  
+"  " close vim iff nerdtree only
+"  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"  map <C-n> :NERDTreeToggle<CR>
+"  
